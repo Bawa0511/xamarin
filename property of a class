@@ -1,0 +1,72 @@
+using System;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            emp e1 = new emp();
+            Console.WriteLine("enter employer name");
+            e1.Emp_name = Console.ReadLine();
+            Console.WriteLine("enter employer id");
+            e1.Emp_id =int.Parse( Console.ReadLine());
+            Console.WriteLine("employee name:" + e1.Emp_name);
+            Console.WriteLine("employee id:" + e1.Emp_id);
+
+
+            Console.ReadKey();
+        }
+
+
+
+
+
+    }
+}
+
+
+---------------------------
+
+emp.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication2
+{
+    class emp
+    {
+        private string emp_name;
+        private int emp_id;
+
+        public string Emp_name
+        {
+            get
+            {
+                return emp_name;
+            }
+
+            set
+            {
+                emp_name = value;
+            }
+        }
+
+        public int Emp_id
+        {
+            get
+            {
+                return emp_id;
+            }
+
+            set
+            {
+                emp_id = value;
+            }
+        }
+    }
+}
