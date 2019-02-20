@@ -1,0 +1,43 @@
+mainpage.xaml.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace App1
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+        public void btnclickMe(object sender,EventArgs args)
+        {
+            string strName = txtname.Text;
+            lblname.Text = strName;
+        }
+    }
+}
+
+
+________________________________________________________
+
+mainpage.xaml
+
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+
+    <StackLayout>
+        <Entry x:Name="txtname" Placeholder="enter the name"></Entry>
+        <Label x:Name="lblname" Font="Large"></Label>
+        <Button Text="CLICK ME!" Clicked="btnclickMe"></Button> 
+    </StackLayout>
+
+</ContentPage>
