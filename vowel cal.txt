@@ -1,0 +1,94 @@
+page.xaml.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace App1
+{
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Page1 : ContentPage
+	{
+		public Page1 ()
+		{
+			InitializeComponent ();
+		}
+        public void myclick(object sender, EventArgs args)
+        {
+            int i;
+            int vowel = 0;
+            string str1 = txtvalue1.Text;
+            string str2 = txtvalue2.Text;
+            string str = (str1 + str2).ToUpper();
+            for(i=0; i<str.Length; i++)
+            {
+                if (str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U') 
+                {
+                    vowel++;
+                }
+            }
+            lblresult.Text = "the no. of vowel are :" + vowel.ToString();
+        }
+	}
+}
+
+
+------------------------------------
+
+app.xaml.cs
+
+using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+namespace App1
+{
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
+
+            MainPage = new App1.Page1();
+        }
+
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
+}
+
+-------------------------------------
+
+page1.xaml
+
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Page1" BackgroundColor="Red">
+    <ContentPage.Content>
+        <StackLayout Padding="50">
+            <Entry x:Name="txtvalue1" Placeholder="enter the first value"></Entry>
+            <Entry x:Name="txtvalue2" Placeholder="enter the second value"></Entry>
+            <Label x:Name="lblresult" Font="large"></Label>
+            <Button Text="String Calc" Clicked="myclick"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
