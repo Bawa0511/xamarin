@@ -1,0 +1,48 @@
+mainpage.xaml.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace App4
+{
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+        public void myclick(object sender,EventArgs args)
+        {
+            int Num1 = int.Parse(txtNum1.Text);
+            int Num2 = int.Parse(txtNum2.Text);
+            int result = Num1 + Num2;
+            lblResult.Text = result.ToString();
+
+        }
+
+    }
+}
+
+-------------------------------------------------------------
+
+mainpage.xaml
+
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App4"
+             x:Class="App4.MainPage">
+
+    <StackLayout>
+        <Entry x:Name="txtNum1" Placeholder="Enter first value"></Entry>
+        <Entry x:Name="txtNum2" Placeholder="Enter second value"></Entry>
+        <Label x:Name="lblResult"></Label>
+        <Button Text="Add" Clicked="myclick"></Button> 
+        
+    </StackLayout>
+
+</ContentPage>
